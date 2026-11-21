@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">ShopLedger architecture</title><desc id="desc">Browser, Express routers, application modules and storage. Eight steps trace checkout. Violet identifies the printable invoice module.</desc>
+<style>text{font-family:sans-serif;fill:#163743}.bold{font-weight:700}.white{fill:white;font-weight:700}.muted{fill:#42616a}.violet{fill:#652f87;font-weight:700}</style>
+<rect x="0" y="0" width="1200" height="800" rx="6" fill="#f6f9f8"/>
+<text x="32" y="53" font-size="34" class="bold">ShopLedger architecture</text>
+<rect x="948" y="25" width="217" height="34" rx="6" fill="#efdef8"/>
+<text x="963" y="48" font-size="16" class="violet">Violet · invoice ticket</text>
+<rect x="32" y="80" width="288" height="68" rx="6" fill="#d6ebe6"/>
+<text x="48" y="108" font-size="20" class="bold">public/</text>
+<text x="48" y="133" font-size="15" class="">Browser UI and checkout cart</text>
+<text x="339" y="121" font-size="16" class="">HTTP →</text>
+<rect x="423" y="80" width="742" height="68" rx="6" fill="#d6ebe6"/>
+<text x="442" y="108" font-size="20" class="bold">server.js</text>
+<text x="442" y="133" font-size="15" class="">Serves public/, mounts the four routers at /api, and handles GET /orders/:id/invoice.</text>
+<text x="32" y="184" font-size="21" class="bold">routes/   Express routers</text>
+<rect x="32" y="198" width="277" height="62" rx="6" fill="#e5edef"/>
+<text x="43" y="223" font-size="17" class="bold">products.js</text>
+<text x="43" y="245" font-size="13" class="">Catalog and coupons</text>
+<rect x="317" y="198" width="277" height="62" rx="6" fill="#e5edef"/>
+<text x="328" y="223" font-size="17" class="bold">orders.js</text>
+<text x="328" y="245" font-size="13" class="">Order creation, lookup and cancellation</text>
+<rect x="602" y="198" width="277" height="62" rx="6" fill="#e5edef"/>
+<text x="613" y="223" font-size="17" class="bold">customers.js</text>
+<text x="613" y="245" font-size="13" class="">Khata accounts and settlements</text>
+<rect x="887" y="198" width="277" height="62" rx="6" fill="#e5edef"/>
+<text x="898" y="223" font-size="17" class="bold">reports.js</text>
+<text x="898" y="245" font-size="13" class="">Dashboard, GST checks and export</text>
+<text x="32" y="297" font-size="21" class="bold">lib/   Application modules</text>
+<rect x="32" y="310" width="221" height="55" rx="6" fill="#e5edef"/>
+<text x="43" y="333" font-size="17" class="bold">inventory.js</text>
+<text x="43" y="354" font-size="13" class="">Stock checks and adjustments</text>
+<rect x="260" y="310" width="221" height="55" rx="6" fill="#e5edef"/>
+<text x="271" y="333" font-size="17" class="bold">coupons.js</text>
+<text x="271" y="354" font-size="13" class="">Coupon eligibility and caps</text>
+<rect x="488" y="310" width="221" height="55" rx="6" fill="#e5edef"/>
+<text x="499" y="333" font-size="17" class="bold">pricing.js</text>
+<text x="499" y="354" font-size="13" class="">Discounted checkout totals</text>
+<rect x="716" y="310" width="221" height="55" rx="6" fill="#e5edef"/>
+<text x="727" y="333" font-size="17" class="bold">tax.js</text>
+<text x="727" y="354" font-size="13" class="">HSN slabs and GST split</text>
+<rect x="944" y="310" width="221" height="55" rx="6" fill="#efdef8"/>
+<text x="955" y="333" font-size="17" class="violet">invoice.js</text>
+<text x="955" y="354" font-size="13" class="">Printable invoice calculation</text>
+<rect x="32" y="372" width="221" height="55" rx="6" fill="#e5edef"/>
+<text x="43" y="395" font-size="17" class="bold">orders.js</text>
+<text x="43" y="416" font-size="13" class="">Order records and filters</text>
+<rect x="260" y="372" width="221" height="55" rx="6" fill="#e5edef"/>
+<text x="271" y="395" font-size="17" class="bold">dates.js</text>
+<text x="271" y="416" font-size="13" class="">Local dates and date keys</text>
+<rect x="488" y="372" width="221" height="55" rx="6" fill="#e5edef"/>
+<text x="499" y="395" font-size="17" class="bold">ledger.js</text>
+<text x="499" y="416" font-size="13" class="">Khata charges and payments</text>
+<rect x="716" y="372" width="221" height="55" rx="6" fill="#e5edef"/>
+<text x="727" y="395" font-size="17" class="bold">reports.js</text>
+<text x="727" y="416" font-size="13" class="">Sales and GST reconciliation</text>
+<rect x="944" y="372" width="221" height="55" rx="6" fill="#e5edef"/>
+<text x="955" y="395" font-size="17" class="bold">store.js</text>
+<text x="955" y="416" font-size="13" class="">JSON reads, writes and audit</text>
+<rect x="32" y="442" width="552" height="47" rx="6" fill="#d6ebe6"/>
+<text x="46" y="471" font-size="16" class="bold">config.js</text>
+<text x="136" y="471" font-size="14" class="">Shop settings, GST slabs and coupon definitions</text>
+<rect x="599" y="442" width="566" height="47" rx="6" fill="#d6ebe6"/>
+<text x="613" y="471" font-size="16" class="bold">data/db.json</text>
+<text x="731" y="471" font-size="14" class="">Orders, products, customers, settlements, audit and IDs</text>
+<text x="32" y="529" font-size="23" class="bold">Placing an order</text>
+<text x="239" y="529" font-size="16" class="muted">POST /api/orders</text>
+<rect x="32" y="549" width="29" height="29" rx="6" fill="#26515b"/>
+<text x="42" y="569" font-size="15" class="white">1</text>
+<text x="72" y="561" font-size="15" class="bold">Send the cart</text>
+<text x="72" y="580" font-size="13" class="">The browser posts products, quantities, customer and coupon.</text>
+<rect x="32" y="596" width="29" height="29" rx="6" fill="#26515b"/>
+<text x="42" y="616" font-size="15" class="white">2</text>
+<text x="72" y="608" font-size="15" class="bold">Load the database</text>
+<text x="72" y="627" font-size="13" class="">routes/orders.js calls store.read().</text>
+<rect x="32" y="643" width="29" height="29" rx="6" fill="#26515b"/>
+<text x="42" y="663" font-size="15" class="white">3</text>
+<text x="72" y="655" font-size="15" class="bold">Resolve items and check stock</text>
+<text x="72" y="674" font-size="13" class="">inventory.find() supplies catalog prices. inventory.check() checks stock.</text>
+<rect x="32" y="690" width="29" height="29" rx="6" fill="#26515b"/>
+<text x="42" y="710" font-size="15" class="white">4</text>
+<text x="72" y="702" font-size="15" class="bold">Price the cart</text>
+<text x="72" y="721" font-size="13" class="">Validate the coupon. pricing.computeTotals() applies discounts and GST.</text>
+<rect x="601" y="549" width="29" height="29" rx="6" fill="#26515b"/>
+<text x="611" y="569" font-size="15" class="white">5</text>
+<text x="641" y="561" font-size="15" class="bold">Charge the customer on Khata sales</text>
+<text x="641" y="580" font-size="13" class="">ledger.chargeOrderToKhata() checks credit and updates the balance.</text>
+<rect x="601" y="596" width="29" height="29" rx="6" fill="#26515b"/>
+<text x="611" y="616" font-size="15" class="white">6</text>
+<text x="641" y="608" font-size="15" class="bold">Deduct physical stock</text>
+<text x="641" y="627" font-size="13" class="">inventory.reserve() subtracts each ordered quantity.</text>
+<rect x="601" y="643" width="29" height="29" rx="6" fill="#26515b"/>
+<text x="611" y="663" font-size="15" class="white">7</text>
+<text x="641" y="655" font-size="15" class="bold">Create the order</text>
+<text x="641" y="674" font-size="13" class="">orders.add() assigns an ID and uses dates.today() for the order date.</text>
+<rect x="601" y="690" width="29" height="29" rx="6" fill="#26515b"/>
+<text x="611" y="710" font-size="15" class="white">8</text>
+<text x="641" y="702" font-size="15" class="bold">Save and return</text>
+<text x="641" y="721" font-size="13" class="">store.appendAudit() and store.write() persist changes. HTTP 201 returns the order.</text>
+<rect x="32" y="747" width="1133" height="36" rx="6" fill="#e5edef"/>
+<text x="46" y="771" font-size="15" class="bold">Print an existing order</text>
+<text x="232" y="771" font-size="15" class="">GET /orders/:id/invoice   →   store.read()   →   orders.get()   →   invoice.render()   →   computeInvoiceFigures()</text>
+</svg>
